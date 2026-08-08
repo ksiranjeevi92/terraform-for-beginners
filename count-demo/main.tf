@@ -13,11 +13,14 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-    //ami = var.ami_id
-    ami = data.aws_ami.example
+    count = 1
+    ami = var.ami_id
+    # ami = data.aws_ami.example
 
     instance_type = var.instance_type
 
-    tags = local.common_tags
+    tags = {
+        Name = "Myserver-${count.index}"
+    }
 
 }
