@@ -28,3 +28,39 @@ variable "private_subnet_cidr" {
   type = string
   default = "10.0.2.0/24"
 }
+
+variable "instance_type" {
+  description = "EC2 instance type"
+  type = string
+  default = "t3.micro"
+}
+
+variable "egress_cidr" {
+  description = "CIDR block for all outbond traffic"
+  type = string
+  default = "0.0.0.0/0"
+}
+
+variable "ingress_cidr" {
+  description = "CIDR block for all inbound traffic"
+  type = string
+  default = "0.0.0.0/0"
+}
+
+variable "ssh_port" {
+  description = "port number for ssh"
+  type = number
+  default = 80
+}
+
+variable "http_port" {
+  description = "port number for http"
+  type = number
+  default = 22
+}
+
+variable "key_name" {
+  description = "Name of AWS Keys"
+  type = string
+  default = "terraform-new"
+}
